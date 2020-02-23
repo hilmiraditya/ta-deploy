@@ -1,7 +1,7 @@
 version: "3"
 services: 
     app:
-        container_name: c_app
+        container_name: ITSshorturl_app
         working_dir: /var/www
         restart: unless-stopped
         build: 
@@ -14,7 +14,7 @@ services:
             - sample-network
         
     nginx:
-        container_name: c_nginx
+        container_name: ITSshorturl_nginx
         restart: unless-stopped
         image: nginx:latest
         ports: 
@@ -27,7 +27,7 @@ services:
 
     mysql:
         image: mysql:5.7
-        container_name: c_mysql
+        container_name: ITSshorturl_mysql
         restart: unless-stopped
         volumes:
             - ./docker/mysql:/var/lib/mysql/
@@ -41,18 +41,6 @@ services:
             - MYSQL_ROOT_PASSWORD=rahasia
         networks:
             - sample-network
-
-    # pma:
-    #     image: phpmyadmin/phpmyadmin
-    #     container_name: c_pma
-    #     restart: unless-stopped
-    #     ports: 
-    #         - "8080:80"
-    #     environment: 
-    #         - PMA_HOST=mysql
-    #     networks: 
-    #         - sample-network
-
 networks: 
     sample-network:
         driver: bridge
