@@ -21,7 +21,7 @@ RUN chown -R www-data:www-data /var/www
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ADD ../../code/. /var/www
+ADD ./web-app/. /var/www
 
 RUN composer install
 RUN cp .env.example .env
