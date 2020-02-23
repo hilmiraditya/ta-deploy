@@ -26,6 +26,8 @@ RUN composer install
 COPY /build/.env /var/www
 RUN php artisan key:generate
 RUN chown -R www-data:www-data /var/www
+RUN cp .env.example .env
+RUN php artisan key:generate
 
 EXPOSE 9000
 CMD ["php-fpm"]
