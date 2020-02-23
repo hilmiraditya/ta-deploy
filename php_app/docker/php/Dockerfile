@@ -21,5 +21,10 @@ RUN chown -R www-data:www-data /var/www
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN composer install
+RUN cp .env.example .env
+RUN php artisan key:generate
+RUN chown -R www-data:www-data /var/www
+
 EXPOSE 9000
 CMD ["php-fpm"]
