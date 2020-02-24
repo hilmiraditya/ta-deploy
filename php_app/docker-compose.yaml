@@ -1,13 +1,13 @@
 version: "3"
 services: 
     app:
-        image: hilmiraditya/ta_php:image_temp
+        image: hilmiraditya/ta_php:temp
         build: 
             context: ./docker/php/
             dockerfile: Dockerfile
         
     nginx:
-        image: hilmiraditya/ta_nginx:image_temp
+        image: hilmiraditya/ta_nginx:temp
         build: 
             context: ./docker/nginx/
             dockerfile: Dockerfile
