@@ -1,4 +1,0 @@
-ta-deploy
-
-percobaan
-aaa
