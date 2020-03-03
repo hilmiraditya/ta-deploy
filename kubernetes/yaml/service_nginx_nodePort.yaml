@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-03-02T05:56:55Z"
+  labels:
+    tier: backend
+  name: nginx
+  namespace: default
+  resourceVersion: "963362"
+  selfLink: /api/v1/namespaces/default/services/nginx
+  uid: 78e180b0-cb40-4139-a590-9c991bee6fc1
+spec:
+  clusterIP: 10.100.166.185
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32509
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+    tier: backend
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
