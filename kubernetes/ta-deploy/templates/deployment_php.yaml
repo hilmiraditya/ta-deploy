@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php
+  labels:
+    tier: backend
+spec:
+  selector:
+    matchLabels:
+      app: php
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: php
+        tier: backend
+    spec:
+      volumes:
+      - name: public-storage
+        persistentVolumeClaim:
+          claimName: php-public-storage
+      - name: config
+        configMap:
+          name: php-env-config
+          items:
+          - key: config
+            path: .env
+      containers:
+      - name: php
+        image: hilmiraditya/ta_php
+        volumeMounts:
+        - name: config
+          mountPath: /var/www/.env
+          subPath: .env
+        - name: public-storage
+          mountPath: /var/www/public/storage
+          subPath: storage
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 9000

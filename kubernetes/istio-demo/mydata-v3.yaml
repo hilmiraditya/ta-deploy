@@ -1,0 +1,51 @@
+---
+#################################################
+# ConfigMap for index.html for mydata v3
+#################################################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mydata-cm-v3
+data:
+  index.html: |
+    <body bgcolor="green">
+      <center>
+        <h1>Ini Aplikasi</h1>
+        <h1>V3</h1>
+      </center>
+    </body>
+---
+#################################################
+# Deployment: mydata v3
+#################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydata-v3
+  labels:
+    app: mydata
+    version: v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mydata
+      version: v3
+  template:
+    metadata:
+      labels:
+        app: mydata
+        version: v3
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        volumeMounts:
+        - name: index-html
+          mountPath: /usr/share/nginx/html
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: index-html
+        configMap:
+          name: mydata-cm-v3
