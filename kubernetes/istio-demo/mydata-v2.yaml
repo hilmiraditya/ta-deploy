@@ -8,7 +8,7 @@ metadata:
   name: mydata-cm-v2
 data:
   index.html: |
-    <body bgcolor="gray">
+    <body bgcolor="green">
       <center>
         <h1>Ini Aplikasi</h1>
         <h1>V2</h1>

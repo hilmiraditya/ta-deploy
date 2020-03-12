@@ -10,26 +10,10 @@ data:
   index.html: |
     <body bgcolor="green">
       <center>
-        <h1><font color="yellow">Ini Aplikasi</font></h1>
-        <h1><font color="yellow">V1</font></h1>
+        <h1>Ini Aplikasi</h1>
+        <h1>V1</h1>
       </center>
     </body>
----
-#################################################
-# Service: mydata
-#################################################
-apiVersion: v1
-kind: Service
-metadata:
-  name: mydata
-  labels:
-    app: mydata
-spec:
-  ports:
-  - name: http
-    port: 80
-  selector:
-    app: mydata
 ---
 #################################################
 # Deployment: mydata v1

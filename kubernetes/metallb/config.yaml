@@ -9,4 +9,4 @@ data:
     - name: custom-ip-space
       protocol: layer2
       addresses:
-      - IP MINIKUBE/28
+      - 192.168.23.43/28
