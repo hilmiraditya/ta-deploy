@@ -1,1 +1,0 @@
-minikube start --memory 8092
