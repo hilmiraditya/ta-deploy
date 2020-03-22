@@ -8,8 +8,17 @@ spec:
   gateways:
   - mydata-gateway
   http:
+  # - route:
+  #     - destination:
+  #         host: mydata
+  #         port:
+  #           number: 80
   - route:
       - destination:
           host: mydata
+          subset: v1
           port:
             number: 80
+        mirror:
+          host: mydata
+        mirror_percent: 100
