@@ -1,0 +1,15 @@
+#################################################
+# Service: mydata
+#################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: mydata
+  labels:
+    app: mydata
+spec:
+  ports:
+  - name: http
+    port: 80
+  selector:
+    app: mydata
