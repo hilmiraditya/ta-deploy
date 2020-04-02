@@ -1,0 +1,7 @@
+version: "3"
+services:         
+    nginx:
+        image: hilmiraditya/ta_nginx_2:temp
+        build: 
+            context: ./
+            dockerfile: Dockerfile
